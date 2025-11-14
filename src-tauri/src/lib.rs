@@ -1,9 +1,8 @@
 use plotly::{Plot, Scatter};
 
-// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #[tauri::command]
 fn plotly_scripts() -> String {
-   Plot::offline_js_sources()
+    Plot::offline_js_sources()
 }
 
 #[tauri::command]
@@ -19,7 +18,7 @@ fn plotly_example() -> String {
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![plotly_scripts,plotly_example])
+        .invoke_handler(tauri::generate_handler![plotly_scripts, plotly_example])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
